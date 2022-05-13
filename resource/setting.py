@@ -1,0 +1,6 @@
+
+
+KOREAN = 'ko_KR'
+ENGLISH = 'en_US'
+
+ENCODING = ENGLISH
