@@ -1,11 +1,21 @@
 <HomeView>
-    btn_next: next
+    home_btn_save: btn_save
 
     BoxLayout:
         orientation: 'vertical'
 
-        Label:
-            text: 'home'
-        Button:
-            id: next
-            text: 'next'
+        BoxLayout:
+            orientation: 'vertical'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, 0.2  # width, height
+            Label:
+                size_hint: 0.8, 1
+                text: 'A1 Distortion'
+                halign: 'right'
+            Button:
+                id: btn_save
+                size_hint: 0.2, 1
+                text: 'SAVE'
+                background_color: 1, 0, 0, 1

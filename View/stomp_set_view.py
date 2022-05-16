@@ -11,18 +11,7 @@ Builder.load_file('View/kv_file/stomp_set_view.kv')
 class StompSettingView(Screen):
     def __init__(self, **kwargs):
         super(StompSettingView, self).__init__(**kwargs)
-        layout = BoxLayout(orientation='vertical')
-
-        # Create buttons with a custom text
-        prev = Button(text='Previous')
-
-        # Bind to 'on_release' events of Buttons
-        prev.bind(on_release=self.switch_prev)
-
-        layout.add_widget(Label(text='stmop', font_size=50))
-        layout.add_widget(prev)
-
-        self.add_widget(layout)
+        self.btn_prev.bind(on_release=self.switch_prev)
 
     def switch_prev(self, *args):
         self.manager.transition = SlideTransition(direction="right")
