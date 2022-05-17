@@ -1,21 +1,71 @@
+
+
+
 <HomeView>
-    home_btn_save: btn_save
+    home_btn_edit: btn_edit
+    home_lbl_bank_num: lbl_bank_num
+    home_lbl_bank : lbl_bank_name
 
     BoxLayout:
         orientation: 'vertical'
 
         BoxLayout:
             orientation: 'vertical'
+            size_hint: 1, 0.85  # width, height
 
         BoxLayout:
             orientation: 'horizontal'
-            size_hint: 1, 0.2  # width, height
+            size_hint: 1, 0.15  # width, height
+
             Label:
-                size_hint: 0.8, 1
-                text: 'A1 Distortion'
-                halign: 'right'
+                id: lbl_bank_num
+                size_hint: 0.1, 1
+                halign: 'center'
+                valign: 'middle'
+                text: 'A1'
+                color: root.M_TEXT_COLOR
+                text_size: lbl_bank_num.size
+                canvas.before:
+                    Color:
+                        rgba: root.M_BACKGROUND_COLOR
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                    Color:
+                        rgba: root.M_BORDER_COLOR
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+
+            Label:
+                id: lbl_bank_name
+                size_hint: 0.7, 1
+                halign: 'left'
+                valign: 'middle'
+                text: ' Jun Distortion'
+                color: root.M_TEXT_COLOR
+                text_size: lbl_bank_name.size
+
+                canvas.before:
+                    Color:
+                        rgba: root.M_BACKGROUND_COLOR
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                    Color:
+                        rgba: root.M_BORDER_COLOR
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+
             Button:
-                id: btn_save
-                size_hint: 0.2, 1
+                id: btn_edit
+                size_hint: 0.1, 1
                 text: 'SAVE'
+                background_color: 1, 0, 0, 1
+
+            Button:
+                id: btn_test
+                size_hint: 0.1, 1
+                text: 'test'
                 background_color: 1, 0, 0, 1
