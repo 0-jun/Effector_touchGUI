@@ -8,6 +8,7 @@ Config.set('graphics', 'fullscreen', '0')
 
 from multiprocessing import freeze_support
 
+from View import bank_view
 from View import home_view
 from View import stomp_set_view
 
@@ -19,9 +20,10 @@ class App(App):
        # AppSetting.SCREEN_HEIGHT = self.primaryScreen().size().height()
        # self.main_controller = UsbController.UsbController(self.usb_model)
         root = ScreenManager()
-        root.add_widget(home_view.HomeView(name='Screen home'))
-        root.add_widget(stomp_set_view.StompSettingView(name='Screen stomp setting'))
-
+        root.add_widget(bank_view.BankView(name='bank'))
+        root.add_widget(home_view.HomeView(name='home'))
+        root.add_widget(stomp_set_view.StompSettingView(name='stomp setting'))
+        root.current = 'home'
         return root
 
 
