@@ -4,6 +4,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import Screen
 from kivy.uix.screenmanager import SlideTransition
 
+import AppConstant
 from Model import UI_STYLE
 
 
@@ -14,30 +15,26 @@ class BankView(Screen):
 
         top_layout = BoxLayout(orientation='vertical')
 
-        btn_back = Button(text='Back')
-        btn_back.color = UI_STYLE.M_TEXT_COLOR
-        btn_back.background_color = UI_STYLE.M_BUTTON_COLOR
-        btn_back.bind(on_release=self.switch_back)
-
         main_bank_layout = GridLayout()
-        main_bank_layout.cols = 5
-        main_bank_layout.rows = 5
+        main_bank_layout.cols = 4
+        main_bank_layout.rows = 2
 
         btn_bank_list = list()
-        for i in range(0, 10):
+        for i in range(0, 8):
             btn_bank_list.append(Button(text='A' + str(i)))
             btn_bank_list[-1].color = UI_STYLE.M_TEXT_COLOR
             btn_bank_list[-1].background_color = UI_STYLE.M_BUTTON_COLOR
+            btn_bank_list[-1].bind(on_release=self.event_select_bank)
 
-        for i in range(0, 10):
+        for i in range(0, 8):
             main_bank_layout.add_widget(btn_bank_list[i])
 
-        top_layout.add_widget(btn_back)
         top_layout.add_widget(main_bank_layout)
         self.add_widget(top_layout)
 
-    def switch_back(self, *args):
+    def event_select_bank(self, *args):
         self.manager.transition = SlideTransition(direction="left")
-        self.manager.current = 'home'
+        self.manager.get_screen(AppConstant.SCREEN_HOME).btn_bank_sel.text = args[0].text
+        self.manager.current = AppConstant.SCREEN_HOME
 
 
